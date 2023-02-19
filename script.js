@@ -1,7 +1,7 @@
 const root = document.getElementById('fish-tank');
 
-//Initialize tank with whatever found in storage
-function renderfish (i)
+//Release a fish with its order number
+function releasefish (i)
 {
     var fishclass = 'fish fish' + i.toString();
     var imfishSrc = "fish/" + i.toString() + '.png';
@@ -24,3 +24,26 @@ function renderfish (i)
     root.appendChild(fish)
 }
 
+function killfish (i)
+{
+    var fishclass = '.fish' + i.toString();
+    var fishes = document.querySelectorAll(fishclass);
+    fishes.forEach(function(fish) {
+        fish.remove();
+    });
+}
+
+function resetfish (i)
+{
+    killfish(i);
+    releasefish(i);
+}
+
+//Quickly release all fishes. A limit is applied to prevent system crash.
+function releaseall (limit)
+{
+    for (let i = 1; i <= limit; i++) {
+        killfish(i);
+        releasefish(i);
+        }
+}

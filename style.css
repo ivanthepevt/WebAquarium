@@ -14,7 +14,7 @@ body {
 }
 
 .imfish{
-    max-width: 10vw;
+  max-width: 10vw;
 	max-height: 10vh;
 	transform: scaleX(-1) rotate(15deg);
 	
